@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste de Films</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Films Dynamiques</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le CSS -->
 </head>
 <body>
     <header>
-        <h1>Liste de Films</h1>
+        <h1>Liste des Films</h1>
+        <input type="text" id="search-bar" placeholder="Rechercher un film...">
     </header>
-    
     <main>
-        <section id="film-list">
-            <!-- Les films seront insérés ici par JavaScript -->
-        </section>
+        <div id="film-list"></div>
     </main>
 
-    <script src="script.js"></script>
+    <!-- Fenêtre modale cachée -->
+    <div id="film-modal" class="hidden">
+        <div class="modal-content">
+            <span id="close-modal">&times;</span>
+            <h2 id="modal-title"></h2>
+            <img id="modal-image" alt="">
+            <p id="modal-summary"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Lien vers le JS -->
 </body>
 </html>
