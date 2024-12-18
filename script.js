@@ -9,56 +9,81 @@ const films = [
         summary: "Un film comique sur des aventures inattendues.",
         image: "https://tse2.mm.bing.net/th?id=OIP.Nei9DMtglSxHCGP03Tk6vwHaLG&pid=Api"
     },
-    // Ajoutez les autres films ici...
+    {
+        title: "Rufus",
+        summary: "Un chien se transforme en humain et vit des aventures.",
+        image: "https://tse2.mm.bing.net/th?id=OIP.vd9VAuy1bVrR5IL8QGidjQAAAA&pid=Api"
+    },
+    {
+        title: "The Boy Who Cried Werewolf",
+        summary: "Une jeune fille découvre qu'elle est un loup-garou.",
+        image: "https://tse3.mm.bing.net/th?id=OIP.a681QiBOr6983X_43eM9pAHaLH&pid=Api"
+    },
+    {
+        title: "Best Player",
+        summary: "Deux joueurs professionnels s'affrontent dans un jeu vidéo.",
+        image: "https://tse1.mm.bing.net/th?id=OIP.-fmwFQQ4UUfvwiqIfgRrZgHaLH&pid=Api"
+    },
+    {
+        title: "Rags",
+        summary: "Une version moderne de Cendrillon avec un garçon.",
+        image: "https://tse1.mm.bing.net/th?id=OIP.1LewGkse3ORRv9dYWEKBXgHaLH&pid=Api"
+    },
+    {
+        title: "Nicky Deuce",
+        summary: "Un adolescent passe l'été avec son oncle mafieux.",
+        image: "https://tse3.mm.bing.net/th?id=OIP.0ARS2nkXg6qfnTViTl3T6wAAAA&pid=Api"
+    },
+    {
+        title: "Swindle",
+        summary: "Un groupe d'amis planifie un cambriolage pour récupérer une carte de baseball rare.",
+        image: "https://tse1.mm.bing.net/th?id=OIP.bTy8JzHId0b_BnZhHYLd6AHaLH&pid=Api"
+    },
+    {
+        title: "Splitting Adam",
+        summary: "Un adolescent découvre comment se cloner.",
+        image: "https://tse4.mm.bing.net/th?id=OIP.VLq3xPDY2i5wCuzw2PLWgAHaLH&pid=Api"
+    },
+    {
+        title: "One Crazy Cruise",
+        summary: "Une famille recomposée vit une croisière chaotique.",
+        image: "https://tse4.mm.bing.net/th?id=OIP.9McUifUuP5R_aSX4teoMwAHaLH&pid=Api"
+    },
+    {
+        title: "Rufus 2",
+        summary: "Le chien Rufus continue ses aventures en tant qu'humain.",
+        image: "https://tse2.mm.bing.net/th?id=OIP.PqkAkcr9N1fvps6KUrzf-wHaLH&pid=Api"
+    },
+    {
+        title: "Bixler High Private Eye",
+        summary: "Un adolescent détective enquête sur la disparition de son père.",
+        image: "https://tse1.mm.bing.net/th?id=OIP.tXpCK030gOC5bm_0r8VroQHaLH&pid=Api"
+    },
+    {
+        title: "Lost in the West",
+        summary: "Deux frères voyagent dans le temps jusqu'au Far West.",
+        image: "https://tse2.mm.bing.net/th?id=OIP.cST1iQeFQGSU0fbJ12ZF4QHaK9&pid=Api"
+    }
 ];
 
-function displayFilms(filter = "") {
+function displayFilms() {
     const filmList = document.getElementById('film-list');
-    filmList.innerHTML = ""; // Réinitialiser la liste
-
-    films
-        .filter(film => film.title.toLowerCase().includes(filter.toLowerCase())) // Filtrage par recherche
-        .forEach(film => {
-            const filmElement = document.createElement('div');
-            filmElement.classList.add('film');
-            
-            filmElement.innerHTML = `
-                <img src="${film.image}" alt="${film.title}" class="film-image">
-                <h2>${film.title}</h2>
-                <p>${film.summary}</p>
-            `;
-
-            // Ajouter un gestionnaire de clic à l'image
-            const imageElement = filmElement.querySelector('.film-image');
-            imageElement.addEventListener('click', () => {
-                showModal(film);
-            });
-
-            filmList.appendChild(filmElement);
-        });
+    films.forEach(film => {
+        const filmElement = document.createElement('div');
+        filmElement.classList.add('film');
+        
+        filmElement.innerHTML = `
+            <img src="${film.image}" alt="${film.title}">
+            <h2>${film.title}</h2>
+            <p>${film.summary}</p>
+        `;
+        
+        filmList.appendChild(filmElement);
+    });
 }
 
-function showModal(film) {
-    const modal = document.getElementById('film-modal');
-    document.getElementById('modal-title').innerText = film.title;
-    document.getElementById('modal-image').src = film.image;
-    document.getElementById('modal-summary').innerText = film.summary;
-
-    modal.classList.remove('hidden');
-}
-
-function hideModal() {
-    const modal = document.getElementById('film-modal');
-    modal.classList.add('hidden');
-}
-
-// Gérer la recherche
-document.getElementById('search-bar').addEventListener('input', (e) => {
-    displayFilms(e.target.value);
-});
-
-// Gérer la fermeture de la modale
-document.getElementById('close-modal').addEventListener('click', hideModal);
-
-// Initialiser l'affichage des films
+// Appeler la fonction pour afficher les films
 displayFilms();
+</script>
+</body>
+</html>
